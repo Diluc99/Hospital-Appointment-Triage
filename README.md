@@ -323,28 +323,12 @@ The assignment's minimum Lab 3 scenarios are Routine with an available slot, Pri
 
 The failure was reproduced and inspected in Operate. After changing the process variable to `MORNING`, the failed job continued to return HTTP 503 on retry. A direct PowerShell request to the same API with `MORNING` then returned three slots, and a subsequent fresh process instance completed booking successfully. Therefore, API recovery and successful subsequent execution were demonstrated, but successful retry of the *original* failed job instance was not conclusively verified. Do not describe the original incident as successfully recovered unless a later screenshot/log confirms that the same instance's incident cleared and proceeded.
 
-## 12. Evidence screenshots
 
-Save screenshots captured from the actual running implementation in `screenshots/`. Suggested filenames:
-
-```text
-screenshots/
-├── 01-bpmn-process-model.png
-├── 02-dmn-decision-table.png
-├── 03-registration-worker-started.png
-├── 04-scheduling-api-started.png
-├── 05-tasklist-registration.png
-├── 06-operate-routine-booking.png
-├── 07-operate-priority-review.png
-├── 08-operate-urgent-assessment.png
-├── 09-no-available-slots-review.png
-├── 10-api-failure-incident.png
-└── 11-api-healthy-and-fresh-instance-recovery.png
 ```
 
 Use genuine screenshots from your own Modeler, Tasklist, Operate, and terminal sessions. Do not use placeholder screenshots. The assignment also asks for test evidence, request/response examples, source code, and a concise implementation report.
 
-## 13. Limitations and assumptions
+## 12. Limitations and assumptions
 
 - This is a local educational demonstration using synthetic data and a mock scheduling API.
 - The DMN rules are not clinically validated and must not be used for patient care.
@@ -354,16 +338,3 @@ Use genuine screenshots from your own Modeler, Tasklist, Operate, and terminal s
 - Staff task visibility depends on assignment configuration and the runtime identity's membership in the configured candidate group (for this project, `hospital-staff`).
 - A completed process may not appear in Operate's default running-instance view; use the finished-instance filter/history to inspect completed instances.
 
-## 14. Lab 3 deliverable checklist
-
-- [ ] BPMN model saved in `bpmn/hospital-appointment.bpmn`.
-- [ ] DMN model saved in `dmn/hospital-triage.dmn` and deployed with decision ID `hospital-triage`.
-- [ ] Registration worker source code, `pom.xml`, and `application.yml` included.
-- [ ] Scheduling API source code, `pom.xml`, and `application.properties` included.
-- [ ] REST Connector settings and request/response examples documented.
-- [ ] Process variables and routing explained.
-- [ ] Five minimum scenarios recorded with actual outcomes.
-- [ ] Tasklist screenshots show human-review tasks.
-- [ ] Operate screenshots show process execution, variables, and the scheduling incident.
-- [ ] Original failed-job retry outcome clearly documented; capture additional evidence if the same-instance retry is later completed.
-- [ ] README and concise implementation report included.
