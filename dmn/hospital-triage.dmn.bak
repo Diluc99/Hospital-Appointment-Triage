@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<definitions xmlns="https://www.omg.org/spec/DMN/20191111/MODEL/" xmlns:dmndi="https://www.omg.org/spec/DMN/20191111/DMNDI/" xmlns:dc="http://www.omg.org/spec/DMN/20180521/DC/" xmlns:modeler="http://camunda.org/schema/modeler/1.0" id="Definitions_HospitalTriage" name="Hospital Triage Decisions" namespace="http://camunda.org/examples/hospital-triage" exporter="Camunda Modeler" exporterVersion="5.50.1" modeler:executionPlatform="Camunda Platform" modeler:executionPlatformVersion="7.15.0">
+  <decision id="hospital-triage" name="Hospital Educational Triage">
+    <description>
+      Educational demonstration rules only. These rules are not medically validated
+      and must not be used for real clinical triage or patient-care decisions.
+    </description>
+    <decisionTable id="DecisionTable_HospitalTriage" hitPolicy="FIRST">
+      <input id="Input_SymptomsSeverity" label="Symptoms severity">
+        <inputExpression id="Expression_SymptomsSeverity" typeRef="string">
+          <text>symptomsSeverity</text>
+        </inputExpression>
+      </input>
+      <input id="Input_UrgencyIndicator" label="Urgency indicator">
+        <inputExpression id="Expression_UrgencyIndicator" typeRef="string">
+          <text>urgencyIndicator</text>
+        </inputExpression>
+      </input>
+      <input id="Input_BreathingDifficulty" label="Breathing difficulty">
+        <inputExpression id="Expression_BreathingDifficulty" typeRef="boolean">
+          <text>breathingDifficulty</text>
+        </inputExpression>
+      </input>
+      <output id="Output_TriageCategory" label="Triage category" name="triageCategory" typeRef="string" />
+      <rule id="Rule_UrgentBreathing">
+        <inputEntry id="InputEntry_1_1">
+          <text>-</text>
+        </inputEntry>
+        <inputEntry id="InputEntry_1_2">
+          <text>-</text>
+        </inputEntry>
+        <inputEntry id="InputEntry_1_3">
+          <text>true</text>
+        </inputEntry>
+        <outputEntry id="OutputEntry_1">
+          <text>"Urgent Assessment"</text>
+        </outputEntry>
+      </rule>
+      <rule id="Rule_UrgentIndicator">
+        <inputEntry id="InputEntry_2_1">
+          <text>-</text>
+        </inputEntry>
+        <inputEntry id="InputEntry_2_2">
+          <text>"Emergency"</text>
+        </inputEntry>
+        <inputEntry id="InputEntry_2_3">
+          <text>-</text>
+        </inputEntry>
+        <outputEntry id="OutputEntry_2">
+          <text>"Urgent Assessment"</text>
+        </outputEntry>
+      </rule>
+      <rule id="Rule_SevereHigh">
+        <inputEntry id="InputEntry_3_1">
+          <text>"Severe"</text>
+        </inputEntry>
+        <inputEntry id="InputEntry_3_2">
+          <text>"High"</text>
+        </inputEntry>
+        <inputEntry id="InputEntry_3_3">
+          <text>false</text>
+        </inputEntry>
+        <outputEntry id="OutputEntry_3">
+          <text>"Priority Review"</text>
+        </outputEntry>
+      </rule>
+      <rule id="Rule_ModerateMedium">
+        <inputEntry id="InputEntry_4_1">
+          <text>"Moderate"</text>
+        </inputEntry>
+        <inputEntry id="InputEntry_4_2">
+          <text>"Medium"</text>
+        </inputEntry>
+        <inputEntry id="InputEntry_4_3">
+          <text>false</text>
+        </inputEntry>
+        <outputEntry id="OutputEntry_4">
+          <text>"Priority Review"</text>
+        </outputEntry>
+      </rule>
+      <rule id="Rule_MildLow">
+        <inputEntry id="InputEntry_5_1">
+          <text>"Mild"</text>
+        </inputEntry>
+        <inputEntry id="InputEntry_5_2">
+          <text>"Low"</text>
+        </inputEntry>
+        <inputEntry id="InputEntry_5_3">
+          <text>false</text>
+        </inputEntry>
+        <outputEntry id="OutputEntry_5">
+          <text>"Routine"</text>
+        </outputEntry>
+      </rule>
+      <rule id="Rule_DefaultReview">
+        <inputEntry id="InputEntry_6_1">
+          <text>-</text>
+        </inputEntry>
+        <inputEntry id="InputEntry_6_2">
+          <text>-</text>
+        </inputEntry>
+        <inputEntry id="InputEntry_6_3">
+          <text>-</text>
+        </inputEntry>
+        <outputEntry id="OutputEntry_6">
+          <text>"Priority Review"</text>
+        </outputEntry>
+      </rule>
+    </decisionTable>
+  </decision>
+  <dmndi:DMNDI>
+    <dmndi:DMNDiagram id="DMNDiagram_HospitalTriage">
+      <dmndi:DMNShape id="DMNShape_HospitalTriage" dmnElementRef="hospital-triage">
+        <dc:Bounds height="100" width="220" x="160" y="100" />
+      </dmndi:DMNShape>
+    </dmndi:DMNDiagram>
+  </dmndi:DMNDI>
+</definitions>

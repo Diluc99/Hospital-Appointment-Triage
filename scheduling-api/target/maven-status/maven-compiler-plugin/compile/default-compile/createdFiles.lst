@@ -1,0 +1,7 @@
+com\hospital\scheduling\AppointmentController$BookingResponse.class
+com\hospital\scheduling\AppointmentController$AvailabilityRequest.class
+com\hospital\scheduling\SchedulingApiApplication.class
+com\hospital\scheduling\AppointmentController$BookingRequest.class
+com\hospital\scheduling\AppointmentController$AppointmentSlot.class
+com\hospital\scheduling\AppointmentController$AvailabilityResponse.class
+com\hospital\scheduling\AppointmentController.class
